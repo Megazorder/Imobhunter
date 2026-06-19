@@ -1,0 +1,5 @@
+type Appointment = { client: string; subject: string; date: string; time: string };
+
+export function UpcomingAppointments({ appointments }: { appointments: Appointment[] }) {
+  return <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"><h2 className="text-lg font-bold text-slate-950 dark:text-white">Próximos compromissos</h2><div className="mt-5 space-y-3">{appointments.map((appointment) => <article key={`${appointment.client}-${appointment.time}`} className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-800/70"><div className="flex items-center justify-between gap-3"><strong className="text-slate-900 dark:text-white">{appointment.client}</strong><span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300">{appointment.time}</span></div><p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{appointment.subject}</p><small className="mt-2 block text-xs font-semibold text-slate-400">{appointment.date}</small></article>)}</div></section>;
+}
